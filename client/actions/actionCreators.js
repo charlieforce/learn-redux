@@ -17,7 +17,6 @@ export function addComment(postId, author, comment) {
 }
 
 // remove comment
-// the i refers to the index. we pass the indes and the postId
 
 export function removeComment(postId, i) {
   return {

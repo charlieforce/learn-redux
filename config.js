@@ -7,7 +7,7 @@ module.exports = {
     */
     databases: {
         mongo: {
-            instagram: 'mongodb://heroku_qvp5t1rc:qd708q70clv7justdv5uaf54i@ds161069.mlab.com:61069/heroku_qvp5t1rc'  
+            instagram:'mongodb://localhost:27017/instagram'// 'mongodb://heroku_qvp5t1rc:qd708q70clv7justdv5uaf54i@ds161069.mlab.com:61069/heroku_qvp5t1rc'  
         }
     }
 }

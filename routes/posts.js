@@ -6,6 +6,7 @@ var ObjectID = require('mongodb').ObjectID;
 var multer = require('multer');
 var path = require('path');
 var userImagesPath = path.resolve(__dirname, "../uploads");
+require('dotenv').config({path: __dirname + "../uploads"});
 /**
  * Configuration of multer to save imagesStorage
  */

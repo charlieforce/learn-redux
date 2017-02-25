@@ -21,8 +21,8 @@ var likes = require('./routes/likes.js');
 var comments = require('./routes/comments.js');
 var posts = require('./routes/posts.js');
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json({limit: '50mb'}));
+app.use(bodyParser.urlencoded({limit: '50mb', extended: false}));
 app.use('/api/posts', posts);
 app.use('/api/likes', likes);
 app.use('/api/comments', comments);

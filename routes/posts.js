@@ -58,6 +58,44 @@ router.post('/create',uploadImages.single("userImage"), function (req, res) {
     }
 });
 /**
+To create a post with image + multer middlerware to post images also
+*/
+router.post('/create/data', function (req, res) {
+    if(req.body.caption ){
+        dataAccess.insertOne('posts',
+        {
+            "code":"BAcyDyQwcXX",
+            "caption":req.body.caption,
+            "likes":0,
+            "comments":[],
+            "display_src": req.body.userImage,
+            "file_name":req.body.fileName,
+            "ext":req.body.ext
+        },
+        function (err, data) {
+        console.log(err || data);
+        if (err) {
+                    res.status(422).json({
+                        success: false, message: 'Could not process your request. Please try again!', code: 422, data: {}
+                    });
+                }
+                else {
+                    console.log('image successfully saved')
+                    // res.status(200).json({
+                    //     success: true, message: 'OK', code: 200, data: {}
+                    // });
+                    //redirecting to main page 
+                    res.redirect('/');
+                }
+        });
+    }
+    else{
+        res.status(400).json({
+            success: false, message: 'Missing required parameters!', code: 400, data: {}
+        });
+    }
+});
+/**
 To get random posts
 @params {post_id:''}
 */

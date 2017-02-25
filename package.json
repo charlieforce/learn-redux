@@ -12,11 +12,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/wesbos/Learn-Redux.git"
+    "url": "https://github.com/harslanhafeez/instagram.git"
   },
-  "author": "Wes Bos",
+  "author": "harslanhafeez",
   "license": "MIT",
-  "homepage": "https://github.com/wesbos/Learn-Redux",
+  "homepage": "https://github.com/harslanhafeez/instagram",
   "dependencies": {
     "axios": "^0.15.3",
     "babel-core": "^6.7.7",
@@ -63,5 +63,8 @@
     "expect-jsx": "^2.5.1",
     "mocha": "^2.4.5",
     "react-addons-test-utils": "^15.0.2"
+  },
+  "engines": {
+    "node": "6.9.1"
   }
 }

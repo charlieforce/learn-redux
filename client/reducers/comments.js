@@ -1,11 +1,29 @@
 function postComments(state = [], action) {
   switch(action.type){
     case 'ADD_COMMENT':
+    console.log('Adding new comment');
+    console.log(action)
+    var post = {};
       // return the new state with the new comment
-      return [...state,{
-        user: action.author,
-        text: action.comment
-      }];
+      for(var items in action.posts){
+        console.log(action.posts[items]['id']);
+        if(action.posts[items]['id'] === action.postId){
+           post = action.posts[items];
+          break;
+        }
+      }
+      if(!post.comments)
+        post.comments = [{
+            user: action.author,
+            text: action.comment
+          }];
+      else
+        post.comments.push({
+            user: action.author,
+            text: action.comment
+          });
+      return  Object.assign([],state,post);
+      break;
     case 'REMOVE_COMMENT':
       // we need to return the new state without the deleted comment
       return [

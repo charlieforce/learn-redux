@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios'; //to talk with backend api
 
 const Comments = React.createClass({
   renderComment(comment, i) {
@@ -14,11 +15,25 @@ const Comments = React.createClass({
   },
   handleSubmit(e) {
     e.preventDefault();
+    var self = this;
     const { postId } = this.props.params;
     const author = this.refs.author.value;
     const comment = this.refs.comment.value;
-    this.props.addComment(postId, author, comment);
-    this.refs.commentForm.reset();
+     console.log('here is props');
+     console.log(self.props)
+    axios.post("/api/comments/create", {
+        id: postId,
+        user:author,
+        text:comment
+      })
+      .then(function (response) {
+        console.log(response);
+        self.props.addComment(postId, author, comment,self.props.posts);
+            self.refs.commentForm.reset();
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   },
   render() {
     return (

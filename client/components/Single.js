@@ -6,10 +6,10 @@ const Single = React.createClass({
   render() {
     const { postId } = this.props.params;
 
-    const i = this.props.posts.findIndex((post) => post.code === postId);
+    const i = this.props.posts.findIndex((post) => post.id === postId);
     const post = this.props.posts[i];
 
-    const postComments = this.props.comments[postId] || [];
+    const postComments = post.comments || [];
 
     return (
       <div className="single-photo">
